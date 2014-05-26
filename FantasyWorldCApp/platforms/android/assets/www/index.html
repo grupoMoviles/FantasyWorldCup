@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta charset="utf-8">
+                    
+        <title>Fantasy World Cup App</title>
+        <link rel="stylesheet"  href="css/app.css">
+        <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.4.0.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/angular.js"></script>
+        <script src="js/lib/jquery.mobile-1.4.0.js"></script>
+        <script src="js/lib/jquery.backstretch.min.js"></script>
+        <script src="js/lib/parse-1.2.18.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+
+
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+
+    <body>
+    <!-- atract -->
+
+    <div data-role="page" id="atract">
+
+            <div class="logo">
+                <img src="img/title.png">
+            </div>
+                <div data-role="content">
+                    <div class="swipebox">
+                        <label >Swipe to Begin</label>
+                    </div>
+                </div>
+    </div>
+
+    <!-- login -->
+    <div data-role="page" class="" id="login">   
+            <div class="logo">
+                <img src="img/title.png">
+            </div>
+                <div data-role="content">
+                        <div class="box">
+                            <center>
+                                <form>
+                                <div class="textinput">
+                                    <input type="text" placeholder="Email" class="centerText" id="txtEmail" ng-model="email" size="30">
+                                </div>
+                                <div class="textinput">
+                                    <input type="password" placeholder="Password" class="centerText" id="txtPassword" ng-model="password" size="30">
+                                </div>
+                                </form>
+                                <div class="subbuttoninput">
+                                    <input id="btnLogin" type="button" value="Login">
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <div class="buttoninput" >
+                            <input id="btnRegister" type="button" value="Register">
+                        </div>
+                </div>
+        </div>
+
+    <!-- registro-->
+    <div data-role="page" id="register">   
+            <div class="topleftbutton">
+                <a href="#login">
+                    <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+                </a>            
+            </div>
+            <div class="logo">
+                <img src="img/title.png">
+            </div>
+                <div data-role="content" class="">
+ 
+                        <div class="box">
+                            <center>
+                                <form>
+                                <div class="textinput">
+                                    <input type="text" placeholder="Email" id="txtFormEmail" class="centerText" ng-model="email" size="30">
+                                </div>
+                                <div class="textinput">
+                                    <input type="password" placeholder="Password" id="txtFormPassword" class="centerText" ng-model="password" size="30">
+                                </div><!--
+                                <div class="textinput">
+                                    <input type="text" placeholder="Team Name" class="centerText" id="txtFormTeamName" ng-model="teamName" size="30">
+                                </div>-->
+                                <div class="subbuttoninput">
+                                    <div class="ui-field-contain">
+                                        <select id="selectCountries" name="select-native-4" id="select-native-4">
+                                            <option>Country</option>
+                                                <optgroup label="America">
+                                                    <option value="Costa Rica">Costa Rica</option>
+                                                </optgroup>
+                                        </select>
+                                    </div>
+                                </form>
+                                </div>
+
+                            </center>
+                        </div>
+                        <div class="buttoninput">
+                            <input id="btnSubmit" type="button" value="Submit">
+                        </div>
+                 </div>
+        </div>
+
+        <!-- menu-->
+    <div data-role="page" id="mainMenu">
+        <div class="topleftbutton">
+            <input id="btnLogOut" type="button" data-icon="user" value="Log out">
+        </div>
+            <div class="logo">
+                <img src="img/title.png">
+            </div>
+                <div data-role="content">
+                    <div class="buttoninput">
+                        <input id="btnMyTeam" type="button" value="My Team">
+                    </div>
+                    <div class="buttoninput">
+                        <input id="btnMyLeagues" type="button" value="Leagues">
+                    </div>
+                    <div class="buttoninput">
+                        <input id="btnResults" type="button" value="Results">
+                    </div>
+                    <div class="buttoninput">
+                        <input id="btnTransfers" type="button" value="Transfers">
+                    </div>
+                </div>   
+
+    </div>
+
+    <!-- my team-->
+    <div data-role="page" id="myTeam">
+        <div class="topleftbutton">
+            <a href="#mainMenu">
+                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+            </a>            
+        </div>
+
+        <div data-role="footer" data-position="fixed" >
+                        <div data-role="navbar">
+                        <ul>
+                            <li><a href="#myTeam" id="barMyTeam"  class="ui-btn-active"  data-icon="custom">My Team</a></li>
+                            <li><a href="#leagues" id="barLeagues" data-icon="custom">Leagues</a></li>
+                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
+                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
+                        </ul>
+                        </div>
+        </div>
+
+    </div>
+
+    <!-- leagues-->
+    <div data-role="page" id="leagues">
+        <div class="topleftbutton">
+            <a href="#mainMenu">
+                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+            </a>            
+        </div>
+        <div data-role="footer" data-position="fixed" >
+                        <div data-role="navbar">
+                        <ul>
+                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
+                            <li><a href="#leagues" id="barLeagues" data-icon="custom" class="ui-btn-active">Leagues</a></li>
+                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
+                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
+                        </ul>
+                        </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div data-role="page" id="results">
+        <div class="topleftbutton">
+            <a href="#mainMenu">
+                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+            </a>            
+        </div>
+        <div data-role="footer" data-position="fixed" >
+                        <div data-role="navbar">
+                        <ul>
+                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
+                            <li><a href="#leagues" id="barLeagues" data-icon="custom">Leagues</a></li>
+                            <li><a href="#results" id="barResults"  class="ui-btn-active" data-icon="custom">Results</a></li>
+                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
+                        </ul>
+                        </div>
+        </div>
+    </div>
+
+    <!-- Transfers -->
+    <div data-role="page" id="transfers">
+        <div class="topleftbutton">
+            <a href="#mainMenu">
+                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+            </a>            
+        </div>
+        <div data-role="content" class="">
+            <justify>
+                <div id="display"></div>
+            </justify>
+        </div>
+        <div data-role="footer" data-position="fixed" >
+                        <div data-role="navbar">
+                        <ul>
+                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
+                            <li><a href="#leagues" id="barLeagues" data-icon="custom" >Leagues</a></li>
+                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
+                            <li><a href="#transfers" id="barTransfers" data-icon="custom" class="ui-btn-active">Transfers</a></li></li>
+                        </ul>
+                        </div>
+        </div>
+    </div>
+
+    </body>
+</html>
+

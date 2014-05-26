@@ -1,0 +1,76 @@
+.logo{
+	text-align: center;
+	vertical-align: center;
+	min-width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+div.swipebox{
+	background-color: #000;
+	border-radius:25px;
+	margin-top: 50px;
+	text-align: center;
+	vertical-align: center;
+	margin-bottom: 50px;
+	opacity:0.2;
+	height: 100px;
+}
+
+.box{
+	background-color: #909090;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.topleftbutton{
+	width: 30%;
+	margin-left: 10px;
+}
+
+.buttoninput{
+	width: 100%;
+}
+
+.subbuttoninput{
+	width: 75%;
+}
+
+.textinput{
+	max-width: 75%;	
+}
+
+input.centerText{
+    text-align: center;
+}
+
+
+input.leftText {
+    text-align: left;
+}
+
+input.rightText {
+    text-align: right;
+}
+
+.amounts {
+    text-align: center;
+}
+.amounts label {
+    display: inline-block;
+    min-width: 150px;
+}
+
+.totals {
+    color: #080;
+}
+
+#barMyTeam:after { background:  url("../img/iconMyTeam.png") 50% 50% no-repeat; background-size: 24px 22px; }
+#barLeagues:after { background:  url("../img/iconLeagues.png") 50% 50% no-repeat; background-size: 24px 16px;  }
+#barResults:after { background:  url("../img/iconResults.png") 50% 50% no-repeat;  background-size: 12px 26px; }
+#barTransfers:after { background:  url("../img/iconTransfers.png") 50% 50% no-repeat;  background-size: 22px 27px; }
+
