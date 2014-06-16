@@ -17,6 +17,9 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        $("#atract").backstretch("http://dl.dropbox.com/u/515046/www/garfield-interior.jpg");
+
+
     },
     // Update DOM on a Received Event
 

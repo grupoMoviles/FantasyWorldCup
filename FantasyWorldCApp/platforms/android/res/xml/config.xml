@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.fantasyWorldCApp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <name>Lab</name>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <name>Fantasy World Cup</name>
     <description>
         Fantasy World Cup
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="felialois@gmail.com" href="http://luisdiegopizarroconstantementemedecepciona.com">
+        Felipe Alfaro, Bruno Sarmiento, Victor Sanchez
     </author>
+    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+    <plugin name="Geolocation" value="CDVLocation" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/battery" />
     <feature name="http://api.phonegap.com/1.0/camera" />

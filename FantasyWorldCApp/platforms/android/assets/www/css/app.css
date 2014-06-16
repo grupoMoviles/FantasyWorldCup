@@ -1,3 +1,55 @@
+/*background { 
+	background: url(../img/bkg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}*/
+
+.lView{
+	margin-top: 20px;
+}
+
+.col{
+	width: 45%;
+	float:left; 
+	margin:0; 
+}
+
+.buttonRow{
+	width: 100%;
+
+}
+
+.popupfield{
+	width: 100%;
+}
+
+.showPlayer{
+	width: 100%;
+	text-align: center;
+}
+
+.displayImage{
+	width: 50%;
+}
+
+.popupFrame{
+	width: 100%;
+}
+
+.toolbarRow{
+	width: 100%;
+}
+.toolbarBlock{
+	width: 100%;
+	text-align: justify;
+}
+
+.searchBar{
+	width: 100%;
+}
+
 .logo{
 	text-align: center;
 	vertical-align: center;
@@ -18,8 +70,337 @@ div.swipebox{
 	height: 100px;
 }
 
+
+.field
+{
+	width:100%;
+	height:100%;
+	display: block;
+
+}
+
+
+.bench
+{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.seat
+{
+	width: 96%;
+	height: 100px;
+	background-color: #b324f1;
+
+}
+
+.cuadricula
+{
+	width: 96%;
+	position: center;
+	height: 400px;
+	background: url("../img/FIELD.png") no-repeat center center;
+
+	text-align: center;
+	vertical-align: center;
+}
+
+.divtest
+{
+	height: 200px;
+	width: 100px;
+	border: 1px solid;
+}
+
+
+.playerSpace
+{
+	width: 96px;
+	height: 80px;
+	display: block;
+}
+
+.playerName
+{
+	width: 96px;
+	height: 15px;
+	background-color: #d42892;
+	opacity: 0.9;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-align: center;
+	vertical-align: center;
+}
+
+.playerShirt
+{
+	width: 60px;
+	height: 60px;
+	position: center;
+	text-align: center;
+	vertical-align: center;
+}
+
+
+
+
+
 .playerView{
+	background-color: #b5e1c5;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.box{
 	background-color: #909090;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.topleftbutton{
+	width: 30%;
+	margin-left: 10px;
+}
+
+.buttoninput{
+	width: 100%;
+}
+
+.subbuttoninput{
+	width: 75%;
+}
+
+.textinput{
+	max-width: 75%;	
+}
+
+input.centerText{
+    text-align: center;
+}
+
+
+input.leftText {
+    text-align: left;
+}
+
+input.rightText {
+    text-align: right;
+}
+
+.amounts {
+    text-align: center;
+}
+.amounts label {
+    display: inline-block;
+    min-width: 150px;
+}
+
+.totals {
+    color: #080;
+}
+
+.playerView{
+	background-color: #b5e1c5;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.box{
+	background-color: #909090;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.topleftbutton{
+	width: 30%;
+	margin-left: 10px;
+}
+
+.buttoninput{
+	width: 100%;
+}
+
+.subbuttoninput{
+	width: 75%;
+}
+
+.textinput{
+	max-width: 75%;	
+}
+
+input.centerText{
+    text-align: center;
+}
+
+
+input.leftText {
+    text-align: left;
+}
+
+input.rightText {
+    text-align: right;
+}
+
+.amounts {
+    text-align: center;
+}
+.amounts label {
+    display: inline-block;
+    min-width: 150px;
+}
+
+.totals {
+    color: #080;
+}
+
+#barMyTeam:after { background:  url("../img/iconMyTeam.png") 50% 50% no-repeat; background-size: 24px 22px; }
+#barLeagues:after { background:  url("../img/iconLeagues.png") 50% 50% no-repeat; background-size: 24px 16px;  }
+#barResults:after { background:  url("../img/iconResults.png") 50% 50% no-repeat;  background-size: 12px 26px; }
+#barTransfers:after { background:  url("../img/iconTransfers.png") 50% 50% no-repeat;  background-size: 22px 27px; }
+
+/*background { 
+	background: url(../img/bkg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}*/
+.popupfield{
+	width: 100%;
+}
+
+
+.popupFrame{
+	width: 100%;
+}
+
+.toolbarRow{
+	width: 100%;
+}
+.toolbarBlock{
+	width: 100%;
+	text-align: center;
+}
+
+.searchBar{
+	width: 100%;
+}
+
+.logo{
+	text-align: center;
+	vertical-align: center;
+	min-width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+div.swipebox{
+	background-color: #000;
+	border-radius:25px;
+	margin-top: 50px;
+	text-align: center;
+	vertical-align: center;
+	margin-bottom: 50px;
+	opacity:0.2;
+	height: 100px;
+}
+
+
+.field
+{
+	width:100%;
+	height:100%;
+	display: block;
+
+}
+
+
+.bench
+{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.seat
+{
+	width: 96%;
+	height: 100px;
+	background-color: #b324f1;
+
+}
+
+.cuadricula
+{
+	width: 96%;
+	position: center;
+	height: 400px;
+	background: url("../img/FIELD.png") no-repeat center center;
+
+	text-align: center;
+	vertical-align: center;
+}
+
+.divtest
+{
+	height: 200px;
+	width: 100px;
+	border: 1px solid;
+}
+
+
+.playerSpace
+{
+	width: 96px;
+	height: 80px;
+	display: block;
+}
+
+.playerName
+{
+	width: 96px;
+	height: 15px;
+	background-color: #d42892;
+	opacity: 0.9;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-align: center;
+	vertical-align: center;
+}
+
+.playerShirt
+{
+	width: 60px;
+	height: 60px;
+	position: center;
+	text-align: center;
+	vertical-align: center;
+}
+
+
+
+
+
+.playerView{
+	background-color: #b5e1c5;
 	border-radius:25px;
 	min-width: 100%;
 	display: inline-block;

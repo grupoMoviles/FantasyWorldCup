@@ -7,23 +7,27 @@
         <title>Fantasy World Cup App</title>
         <link rel="stylesheet"  href="css/app.css">
         <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.4.0.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="js/lib/jquery.js"></script>
-        <script src="js/lib/angular.js"></script>
         <script src="js/lib/jquery.mobile-1.4.0.js"></script>
         <script src="js/lib/jquery.backstretch.min.js"></script>
+
         <script src="js/lib/parse-1.2.18.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
 
-
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/data.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/location.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+
     </head>
 
     <body>
-    <!-- atract -->
+    <!-- atract 
 
-    <div data-role="page" id="atract">
+    <div data-role="page" id="atract" class="background">
 
             <div class="logo">
                 <img src="img/title.png">
@@ -61,7 +65,7 @@
                             <input id="btnRegister" type="button" value="Register">
                         </div>
                 </div>
-        </div>
+    </div>
 
     <!-- registro-->
     <div data-role="page" id="register">   
@@ -87,12 +91,52 @@
                                 <div class="textinput">
                                     <input type="text" placeholder="Team Name" class="centerText" id="txtFormTeamName" ng-model="teamName" size="30">
                                 </div>-->
+                                <!--
+                                <div class="subbuttoninput">
+                                    <button class="btn btn-block" onclick="encontrarPosicion()">Encontrar Posicion</button>
+                                </div>-->
                                 <div class="subbuttoninput">
                                     <div class="ui-field-contain">
                                         <select id="selectCountries" name="select-native-4" id="select-native-4">
                                             <option>Country</option>
                                                 <optgroup label="America">
                                                     <option value="Costa Rica">Costa Rica</option>
+                                                    <option value="Brazil">Brazil</option>
+                                                    <option value="Argentina">Argentina</option>
+                                                    <option value="Uruguay">Uruguay</option>
+                                                    <option value="Chile">Chile</option>
+                                                    <option value="Ecuador">Ecuador</option>
+                                                    <option value="Mexico">Mexico</option>
+                                                    <option value="United States">United States</option>
+                                                    <option value="Honduras">Honduras</option>
+                                                    <option value="Colombia">Colombia</option>
+                                                </optgroup>
+                                                <optgroup label="Europe">
+                                                    <option value="Belgium">Belgium</option>
+                                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+                                                    <option value="Croatia">Croatia</option> 
+                                                    <option value="England">England</option> 
+                                                    <option value="France">France</option> 
+                                                    <option value="Germany">Germany</option>
+                                                    <option value="Greece">Greece</option> 
+                                                    <option value="Italy">Italy</option> 
+                                                    <option value="Netherlands">Netherlands</option>
+                                                    <option value="Portugal">Portugal</option> 
+                                                    <option value="Russia">Russia</option> 
+                                                    <option value="Spain">Spain</option>
+                                                    <option value="Switzerland">Switzerland</option>
+                                                </optgroup>
+                                                <optgroup label="Asia">
+                                                    <option value="Japan">Japan</option>
+                                                    <option value="South Korea">South Korea</option> 
+                                                    <option value="Iran">Iran</option> 
+                                                </optgroup>
+                                                <optgroup label="Africa">
+                                                    <option value="Algeria">Algeria</option>
+                                                    <option value="Cameroon">Cameroon</option> 
+                                                    <option value="Ghana">Ghana</option> 
+                                                    <option value="Ivory Coast">Ivory Coast</option> 
+                                                    <option value="Nigeria">Nigeria</option> 
                                                 </optgroup>
                                         </select>
                                     </div>
@@ -117,36 +161,118 @@
             </div>
                 <div data-role="content">
                     <div class="buttoninput">
-                        <input id="btnMyTeam" type="button" value="My Team">
+                        <input id="btnTransfers" onClick="moveToTransfers()" type="button" value="Transfers">
                     </div>
                     <div class="buttoninput">
-                        <input id="btnMyLeagues" type="button" value="Leagues">
+                        <input id="btnMyTeam" type="button" onClick="moveToMyTeam()" value="My Team">
                     </div>
                     <div class="buttoninput">
-                        <input id="btnResults" type="button" value="Results">
+                        <input id="btnMyLeagues" onClick="moveToLeagues()" type="button" value="Leagues">
                     </div>
-                    <div class="buttoninput">
-                        <input id="btnTransfers" type="button" value="Transfers">
-                    </div>
+
                 </div>   
 
     </div>
 
     <!-- my team-->
     <div data-role="page" id="myTeam">
-        <div class="topleftbutton">
-            <a href="#mainMenu">
-                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
-            </a>            
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+            <div class="topleftbutton">
+                <a href="#mainMenu">
+                    <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+                    <a href="#popupDialog" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Formation</a>
+                </a>    
+            </div>
         </div>
 
-        <div data-role="footer" data-position="fixed" >
+
+      
+                <div class="field">
+                <center>
+                        <div class="cuadricula" id="teamDisplay">
+                            <center>
+                                <table id="GK">
+                                    <tr ALIGN=CENTER id="GK1">
+                                       
+                                    </tr>
+                                </table>
+                                <table id="DF">
+                                    <tr ALIGN=CENTER id="DF1">
+                                        
+                                    </tr>
+                                </table>
+                                <table id="MF">
+                                    <tr ALIGN=CENTER id="MF1">
+                                        
+
+                                    </tr>
+                                </table>
+                                <table id="FW">
+                                    <tr ALIGN=CENTER id="FW1">
+                                       
+                                        
+                                    </tr>
+                                </table>
+
+                            </center>
+                        </div>
+                    </center>
+        </div>
+
+
+
+  <!--PopUP -->
+
+            <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" >
+                <div data-role="header" data-theme="a">
+                <h1>Filter</h1>
+                </div>
+                <div role="main" class="ui-content">
+                <center>
+                    <form>
+                        <div class="ui-field-contain">
+                            <label for="selectTeam">Formation:</label>
+                            <select name="select-native-1" id="selectFormation">
+                                <option value="343">3-4-3</option>
+                                <option value="352">3-5-2</option>
+                                <option value="442">4-4-2</option>
+                                <option value="433">4-3-3</option>
+                                <option value="451">4-5-1</option>
+                                <option value="541">5-4-1</option>
+                                <option value="532">5-3-2</option>
+                            </select>
+                        </div>
+                        <input type="button" id="btnFormation" data-icon="check" value="Done">
+                    </form>
+                </center>
+                </div>
+            </div>
+
+
+
+
+
+                <div class="bench">
+                    <center>
+                    <div class="seat">
+                        <center>
+                                        <table id="bench">
+                                            <tr ALIGN=CENTER>
+                                                
+                                            </tr>
+                                        </table>
+                                    </CENTER>
+                    </div>
+                    </center>
+                </div>
+                                
+
+                <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer" >
                         <div data-role="navbar">
                         <ul>
-                            <li><a href="#myTeam" id="barMyTeam"  class="ui-btn-active"  data-icon="custom">My Team</a></li>
-                            <li><a href="#leagues" id="barLeagues" data-icon="custom">Leagues</a></li>
-                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
-                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
+                            <li><a id="barMyTeam"  class="ui-btn-active"  data-icon="custom">My Team</a></li>
+                            <li><a id="barLeagues" onClick="moveToLeagues()" data-icon="custom">Leagues</a></li>
+                            <li><a  id="barTransfers"  onClick="moveToTransfers()" data-icon="custom">Transfers</a></li>
                         </ul>
                         </div>
         </div>
@@ -155,64 +281,202 @@
 
     <!-- leagues-->
     <div data-role="page" id="leagues">
-        <div class="topleftbutton">
-            <a href="#mainMenu">
-                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
-            </a>            
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">  
+            <a href="#mainMenu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l">Back</a>      
+            <h1>My Leagues</h1> 
+
+        </div>  
+        <div data-role="content">
+            <div class="buttonRow">
+                <div>
+                    <button id="btnCreateLeague" class="ui-btn ui-corner-all">Create League</button>
+                </div>
+            </div>
+            <ul data-role="listview" data-inset="true"  id="leaguesDisplay">
+            </ul>   
         </div>
-        <div data-role="footer" data-position="fixed" >
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer">
                         <div data-role="navbar">
                         <ul>
-                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
-                            <li><a href="#leagues" id="barLeagues" data-icon="custom" class="ui-btn-active">Leagues</a></li>
-                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
-                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
+                            <li><a  id="barMyTeam" onClick="moveToMyTeam()" data-icon="custom">My Team</a></li>
+                            <li><a id="barLeagues" data-icon="custom" class="ui-btn-active">Leagues</a></li>
+                            <li><a  id="barTransfers"  onClick="moveToTransfers()" data-icon="custom">Transfers</a></li>
                         </ul>
                         </div>
         </div>
     </div>
 
-    <!-- Results -->
-    <div data-role="page" id="results">
-        <div class="topleftbutton">
-            <a href="#mainMenu">
-                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
-            </a>            
-        </div>
-        <div data-role="footer" data-position="fixed" >
-                        <div data-role="navbar">
-                        <ul>
-                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
-                            <li><a href="#leagues" id="barLeagues" data-icon="custom">Leagues</a></li>
-                            <li><a href="#results" id="barResults"  class="ui-btn-active" data-icon="custom">Results</a></li>
-                            <li><a href="#transfers" id="barTransfers" data-icon="custom">Transfers</a></li>
-                        </ul>
+    <!-- Create League -->
+    <div data-role="page" id="createLeague">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">  
+            <a href="#leagues" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l">Back</a>      
+            <h1>Create League</h1> 
+
+        </div>   
+            <div class="topleftbutton">
+                <a href="#leagues">
+                    <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+                </a>            
+            </div>
+                <div data-role="content" class="">
+ 
+                        <div class="box">
+                            <center>
+                                <div class="textinput">
+                                    <input type="text" placeholder="League Name" id="txtLeagueName" class="centerText" size="30">
+                                </div>
+                            </center>
                         </div>
+                        <div class="buttoninput">
+                            <input id="btnCreate" type="button" value="Create">
+                        </div>
+                 </div>
+    </div>
+
+    <!-- Information League -->
+    <div data-role="page" id="informationLeague">   
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header"> 
+            <a href="#leagues" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l">Back</a>        
+            <h1>League</h1> 
+            <a href="#popupAddUser" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-plus">Add</a>
+        </div>
+        <div data-role="content">
+            <div class="lView">
+                <ul data-role="listview" data-inset="true"  id="UserTable">
+                </ul>   
+            </div>
+
+
+            <div data-role="popup" id="popupAddUser" data-overlay-theme="b" data-theme="b" >
+                <div data-role="header" data-theme="a">
+                <h1>Add User</h1>
+                </div>
+                <div role="main" class="ui-content">
+                <center>
+                        <div class="textinput">
+                                    <input type="text" placeholder="Email" id="txtUsrEmail" class="centerText" size="30">
+                        </div>
+                        <input type="button" id="btnAddUser" data-icon="check" value="Add">
+                    </form>
+                </center>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Transfers -->
     <div data-role="page" id="transfers">
-        <div class="topleftbutton">
-            <a href="#mainMenu">
-                <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
-            </a>            
-        </div>
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+            <a href="#mainMenu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l">Back</a>        
+            <h1>Transfers</h1> 
+            <a href="#popUpTransfers" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Filter</a>
+    </div>
         <div data-role="content" class="">
-            <justify>
-                <div id="display"></div>
-            </justify>
+            
+            <!--PopUP -->
+
+            <div data-role="popup" id="popUpTransfers" data-overlay-theme="b" data-theme="b" >
+                <div data-role="header" data-theme="a">
+                <h1>Filter</h1>
+                </div>
+                <div role="main" class="ui-content">
+                <center>
+                    <div id="checkboxlist">
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                            <legend>Position:</legend>
+                            <input type="checkbox" value="Goalkeeper" name="checkbox-h-6a" id="checkGK" checked="true">
+                            <label for="checkGK">Goalkeepers</label>
+                            <input type="checkbox" value="Defender" name="checkbox-h-6b" id="checkDF" checked="true">
+                            <label for="checkDF">Defenders</label>
+                            <input type="checkbox" value="Midfielder" name="checkbox-h-6c" id="checkMF" checked="true">
+                            <label for="checkMF">Midfielders</label>
+                            <input type="checkbox" value="Striker" name="checkbox-h-6d" id="checkST" checked="true">
+                            <label for="checkST">Fowards</label>
+                        </fieldset>
+                    </div>
+                            <!--<div data-role="rangeslider">
+                                <label for="range-10a">Price Range:</label>
+                                <input type="range" name="range-10a" id="rangeMin" min="0" max="20" step=".1" value="0">
+                                <label for="range-10b">Price Range:</label>
+                                <input type="range" name="range-10b" id="rangeMax" min="0" max="20" step=".1" value="20">
+                            </div>-->
+                        <div class="ui-field-contain">
+                            <label for="selectTeam">Team:</label>
+                            <select name="select-native-1" id="selectTeam">
+                                <option value="all">All</option>
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="United States">United States</option>
+                                <option value="Honduras">Honduras</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+                                <option value="Croatia">Croatia</option> 
+                                <option value="England">England</option> 
+                                <option value="France">France</option> 
+                                <option value="Greece">Greece</option> 
+                                <option value="Italy">Italy</option> 
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Portugal">Portugal</option> 
+                                <option value="Russia">Russia</option> 
+                                <option value="Spain">Spain</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Japan">Japan</option>
+                                <option value="South Korea">South Korea</option> 
+                                <option value="Iran">Iran</option> 
+                                <option value="Algeria">Algeria</option>
+                                <option value="Cameroon">Cameroon</option> 
+                                <option value="Ghana">Ghana</option> 
+                                <option value="Ivory Coast">Ivory Coast</option> 
+                                <option value="Nigeria">Nigeria</option> 
+                                <option value="Australia">Australia</option> 
+                            </select>
+                        </div>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <input type="radio" name="radio-choice-h-2" id="checkSortPrice" checked="checked">
+                            <label for="checkSortPrice">Sort by Price</label>
+                            <input type="radio" name="radio-choice-h-2" id="checkSortPoints" >
+                            <label for="checkSortPoints">Sort by Points</label>
+                        </fieldset>
+                        <input type="button" id="btnFilter" data-icon="check" value="Done">
+                    </form>
+                </center>
+                </div>
+            </div>
+            
+            <ul data-role="listview" data-inset="true"  id="display">
+            </ul>
+            <input type="button" id="btnLoadMore" value="Load More">
         </div>
-        <div data-role="footer" data-position="fixed" >
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer" >
                         <div data-role="navbar">
-                        <ul>
-                            <li><a href="#myTeam" id="barMyTeam" data-icon="custom">My Team</a></li>
-                            <li><a href="#leagues" id="barLeagues" data-icon="custom" >Leagues</a></li>
-                            <li><a href="#results" id="barResults" data-icon="custom">Results</a></li>
-                            <li><a href="#transfers" id="barTransfers" data-icon="custom" class="ui-btn-active">Transfers</a></li></li>
-                        </ul>
+                            <ul>
+                                <li><a onClick="moveToMyTeam()" id="barMyTeam" data-icon="custom">My Team</a></li>
+                                <li><a id="barLeagues" onClick="moveToLeagues()" data-icon="custom" >Leagues</a></li>
+                                <li><a  id="barTransfers" data-icon="custom" class="ui-btn-active">Transfers</a></li></li>
+                            </ul>
                         </div>
         </div>
+    </div>
+
+    <div data-role="page" id="playerData">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+               <div class="topleftbutton">
+                <a href="#transfers">
+                    <input type="button" data-icon="arrow-l" data-iconpos="notext" value="Icon only">
+                </a>            
+            </div>
+        </div>
+        <div data-role="content">
+            <div id="dataDisplay"></div>
+        </div>
+
     </div>
 
     </body>

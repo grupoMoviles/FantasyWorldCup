@@ -1,3 +1,55 @@
+/*background { 
+	background: url(../img/bkg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}*/
+
+.lView{
+	margin-top: 20px;
+}
+
+.col{
+	width: 45%;
+	float:left; 
+	margin:0; 
+}
+
+.buttonRow{
+	width: 100%;
+
+}
+
+.popupfield{
+	width: 100%;
+}
+
+.showPlayer{
+	width: 100%;
+	text-align: center;
+}
+
+.displayImage{
+	width: 50%;
+}
+
+.popupFrame{
+	width: 100%;
+}
+
+.toolbarRow{
+	width: 100%;
+}
+.toolbarBlock{
+	width: 100%;
+	text-align: justify;
+}
+
+.searchBar{
+	width: 100%;
+}
+
 .logo{
 	text-align: center;
 	vertical-align: center;
@@ -16,6 +68,16 @@ div.swipebox{
 	margin-bottom: 50px;
 	opacity:0.2;
 	height: 100px;
+}
+
+.playerView{
+	background-color: #b5e1c5;
+	border-radius:25px;
+	min-width: 100%;
+	display: inline-block;
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 .box{
